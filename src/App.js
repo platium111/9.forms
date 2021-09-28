@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useForm } from "react-hook-form";
 
+/**
+ * - each time typing in input, it renders again
+ * - `errors` changes value in real time, it has error inside it if data changes
+ * @returns
+ */
 function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("submit ", data);
+  };
+
+  console.log("username =", watch("username"));
+  console.log("error", errors);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          defaultValue="test"
+          {...register("username", { required: true, maxLength: 10 })}
+        ></input>
+        {errors.usename && <p>Need to fill out username</p>}
+
+        <input {...register("password", { required: true })}></input>
+        {errors.password && <p>Need to fill out password</p>}
+
+        <input type="submit" />
+      </form>
     </div>
   );
 }
