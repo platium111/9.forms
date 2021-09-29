@@ -2,6 +2,7 @@ import "./App.css";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import UsingDifferentForm from "./UsingDifferentForm";
+import IntegratingExistForm from "./IntegratingExistForm";
 
 /**
  * - each time typing in input, it doesn't render again, only RENDER on submit because using set state data from useState
@@ -43,7 +44,8 @@ function App() {
         {<input type="submit" value="Submit in App" />}
       </form>
 
-      {<UsingDifferentForm register={register} errors={errors} />}
+      <UsingDifferentForm register={register} errors={errors} />
+      <IntegratingExistForm />
     </div>
   );
 }
