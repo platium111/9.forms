@@ -1,7 +1,7 @@
 import "./App.css";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import UsingDifferentForm from "./UsingYupValidate";
+import UsingDifferentForm from "./UsingDifferentForm";
 
 /**
  * - each time typing in input, it doesn't render again, only RENDER on submit because using set state data from useState
