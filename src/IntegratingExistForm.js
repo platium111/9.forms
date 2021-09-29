@@ -1,5 +1,7 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import TextField from "@mui/material/TextField";
+import Container from "@mui/material/Container";
 
 const Select = React.forwardRef(({ label, onChange, name }, ref) => (
   <div>
@@ -12,7 +14,7 @@ const Select = React.forwardRef(({ label, onChange, name }, ref) => (
 ));
 
 const IntegratingExistForm = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
 
   const onSubmit = (data) => {
     console.log("IntegratingExistForm", data);
@@ -20,12 +22,23 @@ const IntegratingExistForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Select
-        label="Custom label"
-        name="firstName"
-        {...register("firstName")}
-      />
-      <input type="submit" value="Submit IntegratingExistForm" />
+      <Container>
+        <Select
+          label="Custom label"
+          name="firstName"
+          {...register("firstName")}
+        />
+
+        {/* [learn] Using Controller for 3rd UI */}
+        <Controller
+          name="firstName"
+          control={control}
+          defaultValue=""
+          render={({ field }) => <TextField {...field} />}
+        />
+
+        <input type="submit" value="Submit IntegratingExistForm" />
+      </Container>
     </form>
   );
 };
