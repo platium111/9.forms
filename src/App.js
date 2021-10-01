@@ -32,7 +32,11 @@ function App() {
 
   return (
     <div className="App">
-      <TestWrapperStyled title="Basic testing" color={randomColor}>
+      <TestWrapperStyled
+        title="Basic testing"
+        description="Basic testing reac-hook-form with validation"
+        color={randomColor}
+      >
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             defaultValue="test"
