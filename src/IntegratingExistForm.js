@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import { TestWrapperStyled } from "./styles/index.style";
 import { randomColor } from "./utils";
 
@@ -39,8 +40,8 @@ const IntegratingExistForm = () => {
               bgcolor: "background.paper",
               boxShadow: 3,
               borderRadius: 1,
-              p: 2,
-              m: 1,
+              p: 2, // padding
+              m: 1, // margin
               minWidth: 300,
             }}
           >
@@ -64,7 +65,9 @@ const IntegratingExistForm = () => {
               }}
             />
           </Box>
-          <input type="submit" value="Submit IntegratingExistForm" />
+          <Button variant="contained" onClick={handleSubmit(onSubmit)}>
+            Submit IntegratingExistForm{" "}
+          </Button>
         </Container>
       </form>
     </TestWrapperStyled>
