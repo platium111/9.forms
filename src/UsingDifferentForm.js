@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { TestWrapperStyled } from "./styles/index.style";
+import { randomColor } from "./utils";
 
 const UsingDifferentForm = () => {
   // [learn] cannot use useForm in different components (has the same <form>)
@@ -16,7 +18,7 @@ const UsingDifferentForm = () => {
   const onSubmit = (data) => console.log("UsingYupValidate data", data);
 
   return (
-    <div>
+    <TestWrapperStyled title="Testing UsingDifferentForm" color={randomColor()}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           name="game"
@@ -27,7 +29,7 @@ const UsingDifferentForm = () => {
 
         <input type="submit" value="Submit UsingYupValidate" />
       </form>
-    </div>
+    </TestWrapperStyled>
   );
 };
 

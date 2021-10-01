@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import UsingDifferentForm from "./UsingDifferentForm";
 import IntegratingExistForm from "./IntegratingExistForm";
+import { randomColor } from "./utils";
+import { TestWrapperStyled } from "./styles/index.style";
 
 /**
  * - each time typing in input, it doesn't render again, only RENDER on submit because using set state data from useState
@@ -30,19 +32,21 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          defaultValue="test"
-          {...register("username", { required: true, maxLength: 10 })}
-        ></input>
-        {errors.usename && <p>Need to fill out username</p>}
-        <input {...register("password", { required: true })}></input>
-        {errors.password?.type === "required" && (
-          <p>Need to fill out password</p>
-        )}
+      <TestWrapperStyled title="Basic testing" color={randomColor}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            defaultValue="test"
+            {...register("username", { required: true, maxLength: 10 })}
+          ></input>
+          {errors.usename && <p>Need to fill out username</p>}
+          <input {...register("password", { required: true })}></input>
+          {errors.password?.type === "required" && (
+            <p>Need to fill out password</p>
+          )}
 
-        {<input type="submit" value="Submit in App" />}
-      </form>
+          {<input type="submit" value="Submit in App" />}
+        </form>
+      </TestWrapperStyled>
 
       <UsingDifferentForm register={register} errors={errors} />
       <IntegratingExistForm />

@@ -2,13 +2,8 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
-import styled from "styled-components";
-
-const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-
-const Wrapper = styled.div`
-  border: 2px solid ${randomColor};
-`;
+import { TestWrapperStyled } from "./styles/index.style";
+import { randomColor } from "./utils";
 
 // [learn] using forwardRef for existing UI, can pass react-hook-form as onChange
 const Select = React.forwardRef(({ label, onChange, name }, ref) => (
@@ -29,7 +24,10 @@ const IntegratingExistForm = () => {
   };
 
   return (
-    <Wrapper>
+    <TestWrapperStyled
+      title="Test Integrating exist form"
+      color={randomColor()}
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Container>
           <Select
@@ -54,7 +52,7 @@ const IntegratingExistForm = () => {
           <input type="submit" value="Submit IntegratingExistForm" />
         </Container>
       </form>
-    </Wrapper>
+    </TestWrapperStyled>
   );
 };
 
