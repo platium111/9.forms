@@ -49,7 +49,7 @@ const IntegratingExistForm = () => {
             <Select
               label="Custom label"
               name="firstName"
-              {...register("firstName")}
+              {...register("username")}
             />
 
             {/* [learn] Using Controller for 3rd UI

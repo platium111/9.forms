@@ -5,6 +5,7 @@ import UsingDifferentForm from "./UsingDifferentForm";
 import IntegratingExistForm from "./IntegratingExistForm";
 import { randomColor } from "./utils";
 import { TestWrapperStyled } from "./styles/index.style";
+import YupValidate from "./YupValidate";
 
 /**
  * - each time typing in input, it doesn't render again, only RENDER on submit because using set state data from useState
@@ -54,6 +55,7 @@ function App() {
 
       <UsingDifferentForm register={register} errors={errors} />
       <IntegratingExistForm />
+      <YupValidate />
     </div>
   );
 }
