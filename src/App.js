@@ -26,9 +26,9 @@ function App() {
     setFormData(data);
   };
 
-  console.log("username =", watch("game"));
+  console.log("test watch() - username =", watch("username"));
   console.log("error", errors);
-  console.log("formData", formData);
+  console.log("testing formData", formData);
 
   return (
     <div className="App">

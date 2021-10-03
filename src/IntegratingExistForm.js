@@ -9,6 +9,7 @@ import { randomColor } from "./utils";
 
 const FORM_DESCRIPTION =
   "Testing using custom component with forward ref, 3rd component";
+
 // [learn] using forwardRef for existing UI, can pass react-hook-form as onChange
 const Select = React.forwardRef(({ label, onChange, name }, ref) => (
   <div>
@@ -53,7 +54,7 @@ const IntegratingExistForm = () => {
 
             {/* [learn] Using Controller for 3rd UI
              *  + passing name, onBlur, onChange, ref to <Textfield>
-             *  + it renders 4 time each submit (2 before, 2 after)
+             *  + it renders 4 time each submit (2 before, 2 after) -> because it's controller component as React
              */}
             <Controller
               name="lastName"

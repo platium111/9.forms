@@ -15,11 +15,14 @@ const UsingDifferentForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => console.log("UsingYupValidate data", data);
 
+  // [learn] used to watch ~ subscribe input change
+  console.log("watch game", watch("game"));
   return (
     <TestWrapperStyled
       title={FORM_TITLE}
