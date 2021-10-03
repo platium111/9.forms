@@ -60,9 +60,15 @@ function App() {
 
       {/* [learn] Using SmartForm to pass all methods such as register, handleSubmit to children -> only need to use one form */}
       <SmartForm onSubmit={onSubmit}>
-        <Input name="animalName" placeholder="animal name" />
-        <Select name="gender" options={["female", "male", "other"]} />
-        <Input name="submitSmartForm" type="submit" value="Submit" />
+        <TestWrapperStyled
+          name="wrapper"
+          title="Test SmartForm"
+          description="Build SmartForm to pass all react hook functions to children"
+        >
+          <Input name="animalName" placeholder="animal name" />
+          <Select name="gender" options={["female", "male", "other"]} />
+          <Input name="submitSmartForm" type="submit" value="Submit" />
+        </TestWrapperStyled>
       </SmartForm>
     </div>
   );

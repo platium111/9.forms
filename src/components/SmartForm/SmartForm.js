@@ -7,9 +7,15 @@ export function SmartForm({ defaultValues, children, onSubmit }) {
   const methods = useForm({ defaultValues });
   const { handleSubmit } = methods;
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {React.Children.map(children, (child) => {
+  console.log("chilren", children);
+  const recursiveLoadChildren = (children) => {
+    return (
+      children &&
+      React.Children.map(children, (child) => {
+        console.log("children map", child);
+        if (child.props.children) {
+          recursiveLoadChildren(child.props.children);
+        }
         return child.props.name
           ? React.createElement(child.type, {
               ...{
@@ -19,7 +25,13 @@ export function SmartForm({ defaultValues, children, onSubmit }) {
               },
             })
           : child;
-      })}
+      })
+    );
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {recursiveLoadChildren(children)}
     </form>
   );
 }
