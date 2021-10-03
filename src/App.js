@@ -6,6 +6,7 @@ import IntegratingExistForm from "./IntegratingExistForm";
 import { randomColor } from "./utils";
 import { TestWrapperStyled } from "./styles/index.style";
 import YupValidate from "./YupValidate";
+import { SmartForm, Input, Select } from "./components";
 
 /**
  * - each time typing in input, it doesn't render again, only RENDER on submit because using set state data from useState
@@ -56,6 +57,13 @@ function App() {
       <UsingDifferentForm register={register} errors={errors} />
       <IntegratingExistForm />
       <YupValidate />
+
+      {/* [learn] Using SmartForm to pass all methods such as register, handleSubmit to children -> only need to use one form */}
+      <SmartForm onSubmit={onSubmit}>
+        <Input name="animalName" placeholder="animal name" />
+        <Select name="gender" options={["female", "male", "other"]} />
+        <Input name="submitSmartForm" type="submit" value="Submit" />
+      </SmartForm>
     </div>
   );
 }
